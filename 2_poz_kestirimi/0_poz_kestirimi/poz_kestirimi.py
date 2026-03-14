@@ -13,6 +13,9 @@ mp_draw = mp.solutions.drawing_utils
 
 while True:
     ret , frame = vide_cam.read()
+    frame = cv2.flip(frame, 1)
+    frame = cv2.resize(frame, (width, height))
+    
     frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     result = pose.process(frame_rgb)
